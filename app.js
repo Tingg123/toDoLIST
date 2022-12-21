@@ -15,9 +15,8 @@ app.use(bodyParser.urlencoded({ extended: true, useUnifiedTopology: true }));
 
 app.use(express.static("public"));
 
-import dotenv from 'dotenv';
- 
-dotenv.config();
+let dotenv = require('dotenv')
+dotenv.config('./env');
 
 mongoose.connect(
   `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@clustername.wye2tyg.${process.env.DB_HOST}/todolistDB`,
